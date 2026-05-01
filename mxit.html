@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MX IT - MX IT</title>
+    <link rel="stylesheet" href="css/drinkMaker.css">
+    <link rel="stylesheet" href="css/headFoot.css">
+</head>
+<body>
+<header>
+    <div class="navbar">
+        <a href="index.html">
+            <img src="imagens/mxitlogo.png" class="active" alt="mxit" width="80">
+        </a>
+        <nav>
+
+            <a href="mxit.html"class="active">MXIT</a>
+            <a href="mxtpe.html">MXTPE</a>
+            <a href="remx.html">REMIX</a>
+        </nav>
+    </div>
+</header>
+<main>
+    <div id="mixingBoard">
+        <div id="components">
+        </div>
+
+        <input id="add1" type="button" value="+ Base">
+        <input id="add2" type="button" value="+ Sweetener">
+        <input id="add3" type="button" value="+ Citrus">
+        <input id="add4" type="button" value="+ Modifier">
+        <input id="add5" type="button" value="+ Topping">
+        <br>
+        <label>
+            Drink Name:
+            <input type="text" id="dName" required>
+        </label>
+        <br>
+        <label>
+            Your Name:
+            <input type="text" id="yName" required>
+        </label>
+        <br>
+        <input type="submit" id="save" value="Save">
+    </div>
+    <div id="preview">
+
+    </div>
+</main>
+
+<script src="Component.js"></script>
+</body>
+</html>
