@@ -1,0 +1,28 @@
+main{
+    background-color: #48d754;
+    height: 100vh;
+    width: 100vw;
+
+    justify-items: center;
+}
+
+#tracklist{
+    background-color: #205c24;
+    width: 50%;
+    display: grid;
+    justify-items: center;
+    gap:2%;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.drinkCard{
+    width: auto;
+    padding: 1%;
+    min-width: 60%;
+    margin: 1% 2%;
+    border-radius: 10px;
+    background-color: #9ef8a6;
+    grid-column: auto;
+    justify-items: center;
+    text-align: center;
+}

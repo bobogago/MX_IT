@@ -8,6 +8,10 @@ header {
     position: sticky;
     top: 0;
     z-index: 1000;
+    font-family: "Arial Black";
+}
+body{
+    font-family: "Arial";
 }
 .navbar {
     margin:0;
