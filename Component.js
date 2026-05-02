@@ -2,7 +2,7 @@ let bases = ["Select Base", "Gin", "Rum", "Vodka", "Whiskey"];
 let sweetener = ["Select Sweetener", "Syrup", "Honey", "Agave Nectar", "Tang"];
 let citrus = ["Select Citrus", "Lemon Juice", "Lime Juice", "Citrus Bitters", "Grapefruit Juice"];
 let modifier = ["Select Modifier", "Absinthe", "Mescal", "Peri-Peri", "Cola"];
-let topping = ["Select Modifier", "Whipped Cream", "Lemon Peel", "Olive", "Edible Glitter"];
+let topping = ["Select Topping", "Whipped Cream", "Lemon Peel", "Olive", "Edible Glitter"];
 
 let userDrink = {
     drinkName: "Placeholder",
@@ -39,6 +39,7 @@ class Component {
         this.div.appendChild(h2);
 
         let buttonL = document.createElement("input");
+        buttonL.classList.add("setaL");
         buttonL.type = "button";
         buttonL.value = "←";
         this.div.appendChild(buttonL);
@@ -49,6 +50,7 @@ class Component {
         this.div.appendChild(p);
 
         let buttonR = document.createElement("input");
+        buttonR.classList.add("setaR");
         buttonR.type = "button";
         buttonR.value = "→";
         this.div.appendChild(buttonR);
@@ -76,11 +78,14 @@ class Component {
         let remove = document.createElement("input");
         remove.type = "button";
         remove.value = "Remove";
+        remove.classList.add("removeButton");
         this.div.appendChild(remove);
 
         remove.addEventListener("click", function () {
             console.log("remove");
+            components[pos].index = 0;
             while (components[pos].div.hasChildNodes()) {
+                components[pos].div.style.display = "none";
                 components[pos].div.removeChild(components[pos].div.firstChild);
             }
         })
@@ -90,11 +95,13 @@ class Component {
 
 }
 
+/*
 components[components.length] = new Component("Base", bases, components.length);
 components[components.length] = new Component("Sweetener", sweetener, components.length);
 components[components.length] = new Component("Citrus", citrus, components.length);
 components[components.length] = new Component("Modifier", modifier, components.length);
 components[components.length] = new Component("Topping", topping, components.length);
+*/
 
 for (let i = 0; i < components.length; i++) {
     components[i].create();
@@ -102,22 +109,54 @@ for (let i = 0; i < components.length; i++) {
 
 document.querySelector("#add1").addEventListener("click", function () {
     components[components.length] = new Component("Base", bases, components.length);
-    components[components.length-1].create();
+    components[components.length - 1].create();
 });
 document.querySelector("#add2").addEventListener("click", function () {
     components[components.length] = new Component("Sweetener", sweetener, components.length);
-    components[components.length-1].create();
+    components[components.length - 1].create();
 });
 document.querySelector("#add3").addEventListener("click", function () {
     components[components.length] = new Component("Citrus", citrus, components.length);
-    components[components.length-1].create();
+    components[components.length - 1].create();
 });
 document.querySelector("#add4").addEventListener("click", function () {
     components[components.length] = new Component("Modifier", modifier, components.length);
-    components[components.length-1].create();
+    components[components.length - 1].create();
 });
 document.querySelector("#add5").addEventListener("click", function () {
     components[components.length] = new Component("Topping", topping, components.length);
-    components[components.length-1].create();
+    components[components.length - 1].create();
 });
 
+document.querySelector("#save").addEventListener("click", function () {
+    for (let i = 0; i < components.length; i++) {
+        if (components[i].index !== 0) {
+            switch (components[i].type) {
+                case "Base":
+                    userDrink.base[userDrink.base.length] = components[i].index;
+                    break;
+                case "Sweetener":
+                    userDrink.sweetener[userDrink.sweetener.length] = components[i].index;
+                    break;
+                case "Citrus":
+                    userDrink.citrus[userDrink.citrus.length] = components[i].index;
+                    break;
+                case "Modifier":
+                    userDrink.modifier[userDrink.modifier.length] = components[i].index;
+                    break;
+                case "Topping":
+                    userDrink.topping[userDrink.topping.length] = components[i].index;
+                    break;
+            }
+        }
+    }
+
+    userDrink.drinkName = document.querySelector("#dName").value;
+    userDrink.username = document.querySelector("#yName").value;
+
+    const myJSON = JSON.stringify(userDrink);
+    document.getElementById("js").value = myJSON
+    console.log(userDrink);
+    console.log(myJSON);
+    //window.location = "drinkstorer.php?x=" + myJSON;
+})

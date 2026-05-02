@@ -1,0 +1,41 @@
+#shelf {
+    padding: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: wrap;
+    height: 100vh;
+}
+
+
+.drink {
+    position: absolute;
+    /*border: 5px solid $ color;*/
+    font-family: 'VT323', monospace;
+    text-shadow: 0 3px 5px rgba(0, 0, 0, 0.25);
+    white-space: nowrap;
+    height: 200px;
+    width: 100px;
+    background: transparent;
+    background-repeat: repeat-x;
+    background-position: 0 500%;
+    transition: 1s ease;
+}
+
+.drink:nth-child(1){
+    background-position: 340% 100%;
+}
+
+.drink:nth-child(2){
+    z-index: 2;
+    background-image: url(imagens/Liquids/Black.png);
+}
+
+.drink:nth-child(1){
+    z-index: 1;
+    background-image: url(imagens/Liquids/Pink.png);
+}
+
+.drink:hover {
+    background-position: 500% 200%;
+}

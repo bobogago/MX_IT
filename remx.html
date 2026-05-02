@@ -4,25 +4,40 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet" href="css/headFoot.css">
+    <link rel="stylesheet" href="css/remx.css">
 </head>
 <body>
 <header>
     <div class="navbar">
         <div class="logo">
             <a href="index.html">
-                <img src="imagens/mxitlogo.png" class="active" alt="mxit" width="80">
+                <img src="imagens/mxitlogo.png" class="active" alt="mxit">
             </a>
         </div>
         <nav>
-
-            <a href="mxit.html" >MXIT</a>
+            <a href="mxit.html">MXIT</a>
             <a href="mxtpe.html">MXTPE</a>
-
             <a href="remx.html" class="active">REMIX</a>
-
-
         </nav>
     </div>
 </header>
+
+<h1>Prepara a tua bebida selecionando uma opção!</h1>
+<div id="quiz">
+    <h2 id="pergunta"></h2>
+    <div class="componente ">
+        <button id="btn1"></button>
+        <button id="btn2"></button>
+    </div>
+</div>
+
+<div id="resultado" style="display:none">
+    <h2>Resultado:</h2>
+    <p id="pontuacao"></p>
+    <button onclick="repetir()">Repetir</button>
+</div>
+
+
+<script src="remx.js"></script>
 </body>
 </html>

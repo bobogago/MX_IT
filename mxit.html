@@ -10,7 +10,7 @@
 <header>
     <div class="navbar">
         <a href="index.html">
-            <img src="imagens/mxitlogo.png" class="active" alt="mxit" width="80">
+            <img src="imagens/mxitlogo.png" class="active" alt="mxit" width="120">
         </a>
         <nav>
 
@@ -21,7 +21,7 @@
     </div>
 </header>
 <main>
-    <div id="mixingBoard">
+    <form id="mixingBoard" method="post" action="/drinkstorer.php">
         <div id="components">
         </div>
 
@@ -33,16 +33,17 @@
         <br>
         <label>
             Drink Name:
-            <input type="text" id="dName" required>
+            <input type="text" id="dName">
         </label>
         <br>
         <label>
             Your Name:
-            <input type="text" id="yName" required>
+            <input type="text" id="yName">
         </label>
         <br>
         <input type="submit" id="save" value="Save">
-    </div>
+        <input type="text" style="display: none" id="js" name="myJSON">
+    </form>
     <div id="preview">
 
     </div>
